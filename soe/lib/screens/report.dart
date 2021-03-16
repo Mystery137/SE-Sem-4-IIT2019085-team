@@ -11,6 +11,7 @@ class Report extends StatefulWidget {
 }
 
 class _ReportState extends State<Report> {
+  final _messageTextController = TextEditingController();
   List<String> reports = [
     "All sensors are working properly.",
     "Some of sensors needs servicing.",
@@ -50,7 +51,7 @@ class _ReportState extends State<Report> {
                   Padding(
                     padding: EdgeInsets.all(10),
                     child: Container(
-                      height: MediaQuery.of(context).size.height * .4,
+                      height: MediaQuery.of(context).size.height * .35,
                       child: ListView.builder(
                         itemCount: reports.length,
                         itemBuilder: (context, index) {
@@ -88,6 +89,7 @@ class _ReportState extends State<Report> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: TextField(
+                      controller: _messageTextController,
                       decoration: InputDecoration(
                         fillColor: kBlue,
                         hoverColor: kBlue,
@@ -100,7 +102,10 @@ class _ReportState extends State<Report> {
                           borderRadius: BorderRadius.all(Radius.circular(32.0)),
                         ),
                       ),
-                      maxLines: 10,
+                      maxLines: 7,
+                      onChanged: (value) {
+                        currentreport = value;
+                      },
                     ),
                   ),
                   Padding(
@@ -108,7 +113,20 @@ class _ReportState extends State<Report> {
                     child: RoundedButton(
                       buttonColor: kBlueColor,
                       buttonTitle: 'Send Report',
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(
+                          () {
+                            if (currentreport != null) {
+                              setState(() {
+                                _messageTextController.clear();
+                                reports.add(currentreport);
+                                currentreport = null;
+                                showAlertDialog(context);
+                              });
+                            }
+                          },
+                        );
+                      },
                     ),
                   ),
                 ],
@@ -119,4 +137,46 @@ class _ReportState extends State<Report> {
       ),
     );
   }
+}
+
+showAlertDialog(BuildContext context) {
+  // set up the button
+  Widget okButton = FlatButton(
+    child: Text(
+      "OK",
+      textAlign: TextAlign.center,
+      style: TextStyle(color: kBlue),
+    ),
+    onPressed: () {
+      Navigator.of(context).pop();
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text(
+      "\nMessage Info",
+      style: TextStyle(color: kBlue),
+      textAlign: TextAlign.center,
+    ),
+    content: Text(
+      "Sent successfully",
+      style: TextStyle(color: kBlue),
+      textAlign: TextAlign.center,
+    ),
+    actions: [
+      okButton,
+    ],
+    elevation: 24.0,
+    backgroundColor: Colors.white,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }

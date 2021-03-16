@@ -162,7 +162,7 @@ showAlertDialog(BuildContext context) {
     child: Text(
       "OK",
       textAlign: TextAlign.center,
-      style: TextStyle(color: Colors.black),
+      style: TextStyle(color: kBlue),
     ),
     onPressed: () {
       Navigator.of(context).pop();
@@ -172,13 +172,13 @@ showAlertDialog(BuildContext context) {
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
     title: Text(
-      "Incorrect password/email",
-      style: TextStyle(color: Colors.black),
+      "\nIncorrect password/email",
+      style: TextStyle(color: kBlue),
       textAlign: TextAlign.center,
     ),
     content: Text(
       "Re-enter password/email.",
-      style: TextStyle(color: Colors.black),
+      style: TextStyle(color: kBlue),
       textAlign: TextAlign.center,
     ),
     actions: [
