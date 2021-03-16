@@ -23,8 +23,10 @@ class Home extends StatelessWidget {
               decoration: BoxDecoration(
                 color: kBlue,
                 borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(30.0),
-                  bottomLeft: Radius.circular(30.0),
+                  bottomRight: Radius.circular(200.0),
+                  bottomLeft: Radius.circular(70.0),
+                  topLeft: Radius.circular(100),
+                  topRight: Radius.circular(70),
                 ),
               ),
               height: 400,

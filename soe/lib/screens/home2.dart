@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:soe/constants.dart';
+import 'package:soe/screens/report.dart';
+import 'package:soe/screens/schedule.dart';
+import 'package:soe/screens/sensor_data.dart';
+import 'package:soe/screens/staff_data.dart';
 
 class Home2 extends StatelessWidget {
   @override
@@ -25,7 +29,12 @@ class Home2 extends StatelessWidget {
                         width: 20,
                       ),
                       onTap: () {
-                        print('Drawer tap');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Staff_data(),
+                          ),
+                        );
                       },
                     ),
                     Container(
@@ -72,105 +81,238 @@ class Home2 extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Container(
-                margin: EdgeInsets.only(right: 10, left: 10),
-                height: 200,
-                width: 350,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(28),
-                  color: kBlue,
-                ),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      child:
-                          SvgPicture.asset("assets/svg/ellipse_top_pink.svg"),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Sensor_data(),
                     ),
-                    Positioned(
-                      child: SvgPicture.asset(
-                          "assets/svg/ellipse_bottom_pink.svg"),
-                      bottom: 0,
-                      right: 0,
-                    ),
-                  ],
+                  );
+                },
+                child: Container(
+                  margin: EdgeInsets.only(right: 10, left: 10),
+                  height: 200,
+                  width: 350,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(28),
+                    color: kBlue,
+                  ),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        child:
+                            SvgPicture.asset("assets/svg/ellipse_top_pink.svg"),
+                      ),
+                      Positioned(
+                        child: SvgPicture.asset(
+                            "assets/svg/ellipse_bottom_pink.svg"),
+                        bottom: 0,
+                        right: 0,
+                      ),
+                      Positioned(
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            color: kWhiteColor,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                            image: DecorationImage(
+                              image:
+                                  AssetImage('assets/images/sensor_logo.png'),
+                            ),
+                          ),
+                        ),
+                        right: 25,
+                        top: 25,
+                      ),
+                      Positioned(
+                        bottom: 90,
+                        left: 20,
+                        child: Text(
+                          "Access",
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w400,
+                            color: kWhiteColor,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        child: Text(
+                          "Sensor Data",
+                          style: TextStyle(
+                            fontFamily: 'Pacifico',
+                            fontSize: 30.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        bottom: 40,
+                        left: 20,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
                 height: 20,
               ),
-              Container(
-                margin: EdgeInsets.only(right: 10, left: 10),
-                height: 200,
-                width: 350,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(28),
-                  color: kBlue,
-                ),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      child:
-                          SvgPicture.asset("assets/svg/ellipse_top_pink.svg"),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Schedule(),
                     ),
-                    Positioned(
-                      child: SvgPicture.asset(
-                          "assets/svg/ellipse_bottom_pink.svg"),
-                      bottom: 0,
-                      right: 0,
-                    ),
-                  ],
+                  );
+                },
+                child: Container(
+                  margin: EdgeInsets.only(right: 10, left: 10),
+                  height: 200,
+                  width: 350,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(28),
+                    color: kBlue,
+                  ),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        child:
+                            SvgPicture.asset("assets/svg/ellipse_top_pink.svg"),
+                      ),
+                      Positioned(
+                        child: SvgPicture.asset(
+                            "assets/svg/ellipse_bottom_pink.svg"),
+                        bottom: 0,
+                        right: 0,
+                      ),
+                      Positioned(
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            color: kWhiteColor,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(30),
+                            ),
+                            image: DecorationImage(
+                              image:
+                                  AssetImage('assets/images/schedule_logo.png'),
+                            ),
+                          ),
+                        ),
+                        right: 25,
+                        top: 25,
+                      ),
+                      Positioned(
+                        bottom: 90,
+                        left: 20,
+                        child: Text(
+                          "Access",
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w400,
+                            color: kWhiteColor,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        child: Text(
+                          "Schedule Data",
+                          style: TextStyle(
+                            fontFamily: 'Pacifico',
+                            fontSize: 30.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        bottom: 40,
+                        left: 20,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
                 height: 20,
               ),
-              Container(
-                margin: EdgeInsets.only(right: 10, left: 10),
-                height: 200,
-                width: 350,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(28),
-                  color: kBlue,
-                ),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      child:
-                          SvgPicture.asset("assets/svg/ellipse_top_pink.svg"),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Report(),
                     ),
-                    Positioned(
-                      child: SvgPicture.asset(
-                          "assets/svg/ellipse_bottom_pink.svg"),
-                      bottom: 0,
-                      right: 0,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                margin: EdgeInsets.only(right: 10, left: 10),
-                height: 200,
-                width: 350,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(28),
-                  color: kBlue,
-                ),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      child:
-                          SvgPicture.asset("assets/svg/ellipse_top_pink.svg"),
-                    ),
-                    Positioned(
-                      child: SvgPicture.asset(
-                          "assets/svg/ellipse_bottom_pink.svg"),
-                      bottom: 0,
-                      right: 0,
-                    ),
-                  ],
+                  );
+                },
+                child: Container(
+                  margin: EdgeInsets.only(right: 10, left: 10),
+                  height: 200,
+                  width: 350,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(28),
+                    color: kBlue,
+                  ),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        child:
+                            SvgPicture.asset("assets/svg/ellipse_top_pink.svg"),
+                      ),
+                      Positioned(
+                        child: SvgPicture.asset(
+                            "assets/svg/ellipse_bottom_pink.svg"),
+                        bottom: 0,
+                        right: 0,
+                      ),
+                      Positioned(
+                        child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            color: kWhiteColor,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(30),
+                            ),
+                            image: DecorationImage(
+                              image:
+                                  AssetImage('assets/images/report_logo.png'),
+                            ),
+                          ),
+                        ),
+                        right: 25,
+                        top: 25,
+                      ),
+                      Positioned(
+                        bottom: 90,
+                        left: 20,
+                        child: Text(
+                          "Send",
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w400,
+                            color: kWhiteColor,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        child: Text(
+                          "Report",
+                          style: TextStyle(
+                            fontFamily: 'Pacifico',
+                            fontSize: 30.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        bottom: 40,
+                        left: 20,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(

@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 const kBlueColor = Color(0xFF1E1E99);
 const kTwentyBlueColor = Color(0x201E1E99);
@@ -29,5 +31,6 @@ const kLoginTextFeildDecoration = InputDecoration(
 const kWelcomeText = TextStyle(
   color: Colors.white,
   fontWeight: FontWeight.bold,
+  fontFamily: 'Pacifico',
   fontSize: 30.0,
 );

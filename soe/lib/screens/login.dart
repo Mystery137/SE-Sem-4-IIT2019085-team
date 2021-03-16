@@ -46,6 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(
                           color: kWhiteColor,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Source Sans Pro',
                           fontSize: 30,
                         ),
                       ),
