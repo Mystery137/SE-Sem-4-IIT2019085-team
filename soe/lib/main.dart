@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:soe/screens/home.dart';
 import 'package:soe/screens/home2.dart';
+import 'package:soe/screens/report.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: Report(),
     );
   }
 }
