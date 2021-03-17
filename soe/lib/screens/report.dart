@@ -30,6 +30,25 @@ class _ReportState extends State<Report> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      margin: EdgeInsets.all(20),
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: kBlue,
+                        shape: BoxShape.circle,
+                      ),
+                      height: 50,
+                      width: 50,
+                      child: Icon(
+                        Icons.arrow_back_outlined,
+                        color: kWhiteColor,
+                      ),
+                    ),
+                  ),
                   SizedBox(
                     height: 20,
                   ),
