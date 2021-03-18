@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:soe/constants.dart';
+import 'package:soe/screens/home.dart';
 import 'package:soe/screens/report.dart';
 import 'package:soe/screens/schedule.dart';
 import 'package:soe/screens/sensor_data.dart';
@@ -29,6 +30,14 @@ class Home2 extends StatelessWidget {
                         width: 20,
                       ),
                       onTap: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (context) => Home()),
+                            (route) => false);
+                      },
+                    ),
+                    GestureDetector(
+                      onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -36,15 +45,15 @@ class Home2 extends StatelessWidget {
                           ),
                         );
                       },
-                    ),
-                    Container(
-                      height: 59,
-                      width: 59,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/user_image.png'),
+                      child: Container(
+                        height: 59,
+                        width: 59,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/user_image.png'),
+                          ),
                         ),
                       ),
                     ),
