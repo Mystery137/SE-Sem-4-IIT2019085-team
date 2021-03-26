@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:soe/constants.dart';
+import 'package:soe/shared/constants.dart';
 
 class Staff_data extends StatelessWidget {
   @override

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../constants.dart';
+import 'package:soe/shared/constants.dart';
 
 class Sensor_data extends StatelessWidget {
   String ntu_value = "0.73";

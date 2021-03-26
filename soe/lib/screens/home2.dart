@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:soe/constants.dart';
-import 'package:soe/screens/home.dart';
+import 'package:soe/shared/constants.dart';
 import 'package:soe/screens/report.dart';
 import 'package:soe/screens/schedule.dart';
 import 'package:soe/screens/sensor_data.dart';
 import 'package:soe/screens/staff_data.dart';
+import 'package:soe/services/auth.dart';
 
 class Home2 extends StatelessWidget {
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,17 +24,14 @@ class Home2 extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    GestureDetector(
-                      child: SvgPicture.asset(
-                        'assets/svg/drawer_icon.svg',
-                        height: 20,
-                        width: 20,
+                    FlatButton.icon(
+                      icon: Icon(
+                        Icons.person,
+                        color: Colors.black,
                       ),
-                      onTap: () {
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(builder: (context) => Home()),
-                            (route) => false);
+                      label: Text('Log Out'),
+                      onPressed: () async {
+                        await _auth.signOut();
                       },
                     ),
                     GestureDetector(

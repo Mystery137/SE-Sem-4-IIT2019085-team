@@ -1,8 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:soe/constants.dart';
-
+import 'package:soe/shared/constants.dart';
 import '../components.dart';
 
 class Report extends StatefulWidget {
