@@ -27,9 +27,13 @@ class Home2 extends StatelessWidget {
                     FlatButton.icon(
                       icon: Icon(
                         Icons.person,
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
-                      label: Text('Log Out'),
+                      color: kBlue,
+                      label: Text(
+                        'Log Out',
+                        style: TextStyle(color: Colors.white),
+                      ),
                       onPressed: () async {
                         await _auth.signOut();
                       },
