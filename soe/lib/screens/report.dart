@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:soe/services/database.dart';
 import 'package:soe/shared/constants.dart';
 import '../components.dart';
 
@@ -137,9 +137,16 @@ class _ReportState extends State<Report> {
                             if (currentreport != null) {
                               setState(() {
                                 _messageTextController.clear();
-                                reports.add(currentreport);
+                                if (isData(currentreport)) {
+                                  setData(currentreport);
+                                  showAlertDialog(
+                                      context, "Data sent successfully");
+                                } else {
+                                  reports.add(currentreport);
+                                  showAlertDialog(
+                                      context, "Report sent successfully");
+                                }
                                 currentreport = null;
-                                showAlertDialog(context);
                               });
                             }
                           },
@@ -157,7 +164,37 @@ class _ReportState extends State<Report> {
   }
 }
 
-showAlertDialog(BuildContext context) {
+bool isData(String s) {
+  var l = ' '.allMatches(s).length;
+  var dot = '.'.allMatches(s).length;
+  if (s[0] == '\$' && l == 2 && dot < 3) {
+    String ntu = s.substring(2, s.indexOf(' ', 2));
+    String mq2 = s.substring(s.indexOf(' ', 2));
+    if (isNumeric(ntu) && isNumeric(mq2)) return true;
+    return false;
+  } else {
+    return false;
+  }
+}
+
+bool isNumeric(String s) {
+  if (s == null)
+    return false;
+  else
+    return double.tryParse(s) != null;
+}
+
+void setData(String s) async {
+  double ntu = double.parse(s.substring(2, s.indexOf(' ', 2)));
+  ntu = double.parse((ntu).toStringAsFixed(2));
+  double mq2 = double.parse(s.substring(s.indexOf(' ', 2)));
+  mq2 = double.parse((mq2).toStringAsFixed(2));
+  print("ntu : $ntu");
+  print("mq2 : $mq2");
+  await DatabaseServices().updateSensorData(ntu.toString(), mq2.toString());
+}
+
+showAlertDialog(BuildContext context, String displayMessage) {
   // set up the button
   Widget okButton = FlatButton(
     child: Text(
@@ -178,7 +215,7 @@ showAlertDialog(BuildContext context) {
       textAlign: TextAlign.center,
     ),
     content: Text(
-      "Sent successfully",
+      displayMessage,
       style: TextStyle(color: kBlue),
       textAlign: TextAlign.center,
     ),

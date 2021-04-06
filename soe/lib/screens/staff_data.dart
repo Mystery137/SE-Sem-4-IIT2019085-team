@@ -70,7 +70,7 @@ class Staff_data extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "FLUTTER DEVELOPER",
+                    "STAFF MEMBER",
                     style: TextStyle(
                       fontFamily: 'Source Sans Pro',
                       letterSpacing: 2.5,
