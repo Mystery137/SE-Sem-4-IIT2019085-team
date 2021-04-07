@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:soe/shared/constants.dart';
-import 'package:soe/screens/login.dart';
 import 'package:soe/screens/wrapper.dart';
-
 import '../components.dart';
 
 class Home extends StatelessWidget {
