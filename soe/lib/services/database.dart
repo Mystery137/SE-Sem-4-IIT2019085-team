@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:soe/models/currentUser.dart';
+import 'package:soe/models/dataOfStaff.dart';
 import 'package:soe/models/scheduleData.dart';
 import 'package:soe/models/sensorData.dart';
 
@@ -38,7 +38,9 @@ class DatabaseServices {
   }
 
   Stream<UserData> get userData {
-    return staffData.doc(uid).snapshots().map(_userDataFromSnapshot);
+    var v = staffData.doc(uid).snapshots().map(_userDataFromSnapshot);
+    print(v);
+    return v;
   }
 
   SensorData2 _sensorDataFromSnapshot(DocumentSnapshot snapshot) {
@@ -49,7 +51,9 @@ class DatabaseServices {
   }
 
   Stream<SensorData2> get dataOfSensor {
-    return sensorData.doc('data').snapshots().map(_sensorDataFromSnapshot);
+    var v = sensorData.doc('data').snapshots().map(_sensorDataFromSnapshot);
+    print(v);
+    return v;
   }
 
   ScheduleData _scheduleDataFromSnapshot(DocumentSnapshot snapshot) {
@@ -59,6 +63,8 @@ class DatabaseServices {
   }
 
   Stream<ScheduleData> get dataOfSchedule {
-    return scheduleData.doc('data').snapshots().map(_scheduleDataFromSnapshot);
+    var v = scheduleData.doc('data').snapshots().map(_scheduleDataFromSnapshot);
+    print(v);
+    return v;
   }
 }
