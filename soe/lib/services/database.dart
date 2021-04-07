@@ -24,9 +24,9 @@ class DatabaseServices {
     });
   }
 
-  // Future addReport(String s) async{
-  //   return await reportData.doc(uid).set({})
-  // }
+  Future addReport(String s) async {
+    return await reportData.add({uid: s});
+  }
 
   UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
     return UserData(
